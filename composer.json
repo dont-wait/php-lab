@@ -1,0 +1,12 @@
+{
+    "name": "dontwait/php-lab",
+    "authors": [
+        {
+            "name": "dont-wait",
+            "email": "nguyentansang15042005@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "laravel/pint": "^1.30"
+    }
+}
