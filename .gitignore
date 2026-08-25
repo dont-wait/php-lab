@@ -2,8 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=laravel
 
 ### Laravel ###
-/laravel/
-/vendor/
+laravel/
+vendor/
 node_modules/
 npm-debug.log
 yarn-error.log
