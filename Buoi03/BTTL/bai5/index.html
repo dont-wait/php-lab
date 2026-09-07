@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="name" />
+    <button onclick="sayHello()">Gửi</button>
+    <p id="msg"></p>
+    <script>
+      function sayHello() {
+        let formData = new FormData();
+        formData.append("name", document.getElementById("name").value);
+        fetch("hello.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.text())
+          .then((data) => (document.getElementById("msg").innerText = data));
+      }
+    </script>
+  </body>
+</html>

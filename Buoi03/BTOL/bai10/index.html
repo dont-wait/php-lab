@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      li.done span {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input type="text" placeholder="Nhập công việc" id="todo" />
+    <button type="button" onclick="send()">Thêm</button>
+    <ul id="list"></ul>
+
+    <script>
+      function createToDoButton(li, element) {
+        let checkButton = document.createElement("input");
+        checkButton.type = "checkbox";
+        checkButton.checked = element.isDone;
+        checkButton.addEventListener("change", () => {
+          let formData = new FormData();
+          formData.append("action", "toggle");
+          formData.append("id", element.id);
+          formData.append("isDone", checkButton.checked);
+
+          fetch("todo.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              loadData(data);
+            });
+        });
+
+        li.appendChild(checkButton);
+      }
+
+      function createDelButton(li, element) {
+        let deleteButton = document.createElement("button");
+        deleteButton.innerText = "Xóa";
+        deleteButton.addEventListener("click", () => {
+          let formData = new FormData();
+          formData.append("action", "delete");
+          formData.append("id", element.id);
+
+          fetch("todo.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              loadData(data);
+            });
+        });
+
+        li.appendChild(deleteButton);
+      }
+
+      function createTodoItem(element) {
+        let li = document.createElement("li");
+
+        if (element.isDone) {
+          li.classList.add("done");
+        }
+
+        let todoText = document.createElement("span");
+        todoText.innerText = element.todo;
+        li.appendChild(todoText);
+        createToDoButton(li, element);
+        createDelButton(li, element);
+        document.getElementById("list").appendChild(li);
+      }
+
+      function loadData(json) {
+        document.getElementById("list").innerHTML = "";
+        if (json) {
+          json.forEach((element) => {
+            createTodoItem(element);
+          });
+          return;
+        }
+
+        fetch("todo.php")
+          .then((res) => res.json())
+          .then((data) => {
+            data.forEach((element) => {
+              createTodoItem(element);
+            });
+          });
+      }
+
+      function send() {
+        let input = document.getElementById("todo");
+        let todo = input.value.trim();
+
+        if (!todo) {
+          return;
+        }
+
+        let formData = new FormData();
+        formData.append("action", "create");
+        formData.append("todo", todo);
+
+        fetch("todo.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            input.value = "";
+            loadData(data);
+          });
+      }
+
+      loadData();
+    </script>
+  </body>
+</html>

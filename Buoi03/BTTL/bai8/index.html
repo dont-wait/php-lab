@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea id="chat" rows="10" cols="30" readonly></textarea><br />
+    <input type="text" id="msg" />
+    <button onclick="send()">Gửi</button>
+    <script>
+      function loadChat() {
+        fetch("chat.php")
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("chat").value = data.join("\n");
+          });
+      }
+      function send() {
+        let formData = new FormData();
+
+        formData.append("msg", document.getElementById("msg").value);
+        fetch("chat.php", {
+          method: "POST",
+          body: formData,
+        }).then(() => {
+          document.getElementById("msg").value = "";
+          loadChat();
+        });
+      }
+      setInterval(loadChat, 2000);
+      loadChat();
+    </script>
+  </body>
+</html>

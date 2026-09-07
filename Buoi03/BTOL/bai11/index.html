@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tỷ giá ngoại tệ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #f5f5f5;
+        }
+
+        .loading {
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tỷ giá ngoại tệ</h1>
+    <p>
+        Cập nhật lần cuối:
+        <strong id="lastUpdate">-</strong>
+    </p>
+    <p id="loading" class="loading">
+        Đang tải dữ liệu...
+    </p>
+    <p id="error" class="error"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Loại tiền</th>
+                <th>Tỷ giá</th>
+            </tr>
+        </thead>
+        <tbody id="rateTable"></tbody>
+    </table>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+    {
+        "id": "20260908090000123",
+        "todo": "Hoan thanh bai tap PHP buoi 3",
+        "isDone": false
+    },
+    {
+        "id": "20260908090000456",
+        "todo": "On lai cach su dung Fetch API",
+        "isDone": true
+    }
+]

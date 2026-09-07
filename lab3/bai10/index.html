@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sach cong viec</title>
+    <style>
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        li.done span {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Ke hoach hoc tap</h2>
+    <input type="text" id="todo" placeholder="Nhap cong viec">
+    <button onclick="send()">Them</button>
+    <ul id="list"></ul>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

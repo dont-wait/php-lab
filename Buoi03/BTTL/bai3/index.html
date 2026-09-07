@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      id="img"
+      src="./src/img1.jpg"
+      width="200"
+      onmouseover="this.src = './src/img2.jpg'"
+      onmouseout="this.src = './src/img1.jpg'"
+    />
+
+    <form onsubmit="return validateEmail();">
+      <input type="text" id="email" placeholder="Nhập email" />
+      <button type="submit">Kiểm tra</button>
+    </form>
+    <p id="msg"></p>
+
+    <h1 id="clock"></h1>
+
+    <script>
+      function validateEmail() {
+        let email = document.getElementById("email").value;
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (regex.test(email)) {
+          document.getElementById("msg").innerText = "Email hợp lệ";
+        } else {
+          document.getElementById("msg").innerText = "Email không hợp lệ";
+        }
+        return false;
+      }
+
+      function updateClock() {
+        let now = new Date();
+        document.getElementById("clock").innerText = now.toLocaleTimeString();
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>

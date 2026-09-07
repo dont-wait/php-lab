@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2 id="msg"></h2>
+    <div id="info">
+        <input type="number" id="age" placeholder="Nhap tuoi">
+        <button onclick="checkAge()">Kiem tra</button>
+        <p id="result"></p>
+
+    </div>
+    Hello
+    <script>
+        let name = "Sang";
+        let age = 20;
+        console.log(name, age);
+        document.getElementById("msg").innnerText = "Hello JS";
+        document.getElementById("info").innerHTML = `Ten: ${name}, Tuoi: ${age}`;
+        function checkAge() {
+            let age = document.getElementById("age").value;
+            if (age >= 18) {
+                document.getElementById("result").innnerText = "Ban da du tuoi";
+            } else {
+                document.getElementById("result").innnerText = "Ban chua du tuoi";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

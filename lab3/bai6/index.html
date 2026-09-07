@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <table border="1" id="tbl"></table>
+    <script>
+        fetch('products.json')
+            .then(res => res.json())
+            .then(data => {
+                let html = "<tr><th>Tên</th><th>Giá</th></tr>";
+                data.forEach(p => {
+                    html += `<tr><td>${p.name}</td><td>${p.price}</td></tr>`;
+                });
+                document.getElementById("tbl").innerHTML = html;
+            });
+    </script>
+</body>
+
+</html>

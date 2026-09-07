@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ty gia ngoai te</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bang ty gia USD hom nay</h1>
+    <p>Cap nhat luc: <strong id="lastUpdate">-</strong></p>
+    <p id="loading">Dang tai du lieu...</p>
+    <p id="error" class="error"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Loai tien</th>
+                <th>Ty gia</th>
+            </tr>
+        </thead>
+        <tbody id="rateTable"></tbody>
+    </table>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
