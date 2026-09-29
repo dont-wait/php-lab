@@ -1,53 +1,34 @@
 <?php
 
-require 'connect.php';
+require __DIR__.'/connect.php';
+require __DIR__.'/student_helpers.php';
 $inserted = false;
-
+$errors = [];
+$student = ['name' => '', 'email' => '', 'phone' => '', 'birthday' => ''];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $conn->prepare('INSERT INTO students(name, email, phone) VALUES (?, ?, ?)');
-    $stmt->execute([$_POST['name'], $_POST['email'], $_POST['phone']]);
-    $inserted = true;
+    $student = studentInput();
+    $errors = studentErrors($student);
+    if (!$errors) {
+        try {
+            $stmt = $conn->prepare('INSERT INTO students(name, email, phone, birthday) VALUES (?, ?, ?, ?)');
+            $stmt->execute([$student['name'], $student['email'], $student['phone'], $student['birthday'] ?: null]);
+            $inserted = true;
+        } catch (PDOException $e) {
+            if (($e->errorInfo[1] ?? null) !== 1062) {
+                throw $e;
+            }
+            $errors[] = 'Email đã tồn tại. Vui lòng nhập email khác.';
+        }
+    }
 }
-
-require __DIR__ . '/header.php';
+require __DIR__.'/header.php';
 ?>
+<h1 class="h3 mb-3">Thêm sinh viên</h1>
 <?php if ($inserted) { ?>
-    <div class="m-4">
-        <div class="alert alert-success">
-            Thêm sinh viên thành công!
-        </div>
-
-        <a href="list_students.php" class="btn btn-secondary">
-            Quay lại danh sách
-        </a>
-    </div>
-<?php } else { ?>
-    <form method="post" class="p-4 border rounded shadow-sm">
-
-        <div class="mb-3">
-            <label for="name" class="form-label">Họ tên</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="phone" class="form-label">Số điện thoại</label>
-            <input type="text" id="phone" name="phone" class="form-control">
-        </div>
-
-        <button type="submit" class="btn btn-primary">
-            Thêm sinh viên
-        </button>
-
-        <a href="list_students.php" class="btn btn-secondary">
-            Quay lại danh sách
-        </a>
-
-    </form>
-<?php } ?>
-
-<?php require __DIR__ . '/footer.php'; ?>
+    <div class="alert alert-success">Thêm sinh viên thành công!</div>
+    <a href="list_students.php" class="btn btn-secondary">Quay lại danh sách</a>
+<?php } else {
+    $submitLabel = 'Thêm sinh viên';
+    require __DIR__.'/student_form.php';
+} ?>
+<?php require __DIR__.'/footer.php'; ?>
