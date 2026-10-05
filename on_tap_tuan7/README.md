@@ -2,8 +2,12 @@
 
 Bài giải hai đề PDF ở thư mục gốc, dựa trên **mã nguồn lab1–lab5 hiện có trong repository**. Mỗi câu có comment `Câu …`, `Lab …`, `Ref: …` ngay trong PHP/HTML/JS; đường dẫn trong comment tính từ gốc repository. Bảng bên dưới có link mở trực tiếp bài lab. Những phần kết hợp mới được giải thích riêng, không coi là bản chép nguyên mẫu của lab.
 
-- [Đề 01 — Quản lý mượn thiết bị](MSSV_HoTen_DE01/README.md)
-- [Đề 02 — Đăng ký workshop](MSSV_HoTen_DE02/README.md)
+- [Đề 01 — Quản lý mượn thiết bị](NguyenTanSang1/README.md)
+- [Đề 02 — Đăng ký workshop](NguyenTanSang2/README.md)
+
+## Bộ kit Lab 1–5
+
+[Bộ kit ôn tập](kit_lab1_lab5/README.md): từng lab có bản đồ bài gốc, mẫu code có comment, lỗi dễ gặp và bài tự luyện.
 
 ## Chạy bài
 
@@ -15,7 +19,7 @@ Bài giải hai đề PDF ở thư mục gốc, dựa trên **mã nguồn lab1�
    php -S 127.0.0.1:8000 -t on_tap_tuan7
    ```
 
-4. Mở `http://127.0.0.1:8000/MSSV_HoTen_DE01/` hoặc `http://127.0.0.1:8000/MSSV_HoTen_DE02/`. Mỗi trang đầu có link tới tất cả câu.
+4. Mở `http://127.0.0.1:8000/NguyenTanSang1/` hoặc `http://127.0.0.1:8000/NguyenTanSang2/`. Mỗi trang đầu có link tới tất cả câu.
 
 Cần PHP có extension `pdo_mysql`. Dùng Laragon cũng được: chép thư mục đề vào `www`, import SQL, sửa cấu hình rồi mở qua localhost. Các trang HTML dùng Fetch phải mở qua HTTP để gọi được PHP. Không cần Composer, Internet hoặc CDN. Mỗi thư mục đề chạy độc lập, không `require` mã từ lab.
 
