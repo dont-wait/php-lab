@@ -1,4 +1,4 @@
-# Ôn tập tuần 7 — Lập trình mã nguồn mở
+# Ôn tập tuần 7 - Lập trình mã nguồn mở
 
 Bài giải hai đề PDF ở thư mục gốc, dựa trên **mã nguồn lab1–lab5 hiện có trong repository**. Mỗi câu có comment `Câu …`, `Lab …`, `Ref: …` ngay trong PHP/HTML/JS; đường dẫn trong comment tính từ gốc repository. Bảng bên dưới có link mở trực tiếp bài lab. Những phần kết hợp mới được giải thích riêng, không coi là bản chép nguyên mẫu của lab.
 

@@ -1,4 +1,4 @@
-# Đề 01 — Quản lý mượn thiết bị
+# Quản lý mượn thiết bị
 
 CSDL `week7_device`. Xem [cách chạy chung](../README.md#chạy-bài); mở `index.html` qua localhost để chọn câu.
 

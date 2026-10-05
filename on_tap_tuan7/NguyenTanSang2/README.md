@@ -1,4 +1,4 @@
-# Đề 02 — Đăng ký workshop
+# Đăng ký workshop
 
 CSDL `week7_workshop`. Xem [cách chạy chung](../README.md#chạy-bài); mở `index.html` qua localhost để chọn câu.
 
