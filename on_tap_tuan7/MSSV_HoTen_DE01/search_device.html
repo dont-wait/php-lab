@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Câu 2.1 — Tìm thiết bị</title></head>
+<body>
+<h1>Câu 2.1 — Tìm thiết bị</h1>
+<!-- Lab 3 bài 7 + Lab 4 bài 1: Fetch gửi bộ lọc, PDO trả JSON. -->
+<form id="search-form">
+    <label>Từ khóa <input id="keyword"></label>
+    <label>Giá tối đa <input id="max-price" type="number" min="0" step="any"></label>
+    <button>Tìm</button>
+</form>
+<p id="message" role="status"></p>
+<table border="1" cellpadding="8">
+    <thead><tr><th>ID</th><th>Tên</th><th>Loại</th><th>Giá</th><th>Tồn kho</th></tr></thead>
+    <tbody id="results"></tbody>
+</table>
+<script src="search_device.js"></script>
+</body>
+</html>
