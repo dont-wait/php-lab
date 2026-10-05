@@ -8,8 +8,10 @@ require __DIR__.'/Device.php';
 <body>
 <h1>Câu 1.2 — Device</h1>
 <?php
-$device = new Device('Laptop Dell Latitude', 18500000, 8);
-$device->showInfo();
+$device1 = new Device('Laptop Dell Latitude', 18500000, 8);
+$device2 = new Device('Laptop Dell Inpiron 15', 20000000, 1);
+$device1->showInfo();
+$device2->showInfo();
 ?>
 </body>
 </html>

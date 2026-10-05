@@ -1,4 +1,6 @@
 -- Dữ liệu dùng chung: chép từ mục III của đề 02.
+-- Dùng UTF-8 cho phiên import để giữ đúng dữ liệu tiếng Việt.
+SET NAMES utf8mb4;
 CREATE DATABASE week7_workshop CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE week7_workshop;
 

@@ -1,7 +1,6 @@
 <?php
 // Câu 1.1 — Lab 1: POST, trim, kiểm tra chuỗi rỗng, escape HTML.
 // Ref: lab1/bai10/info_process.php; lab1/bai17/uppercase.php.
-// Kiến thức bổ sung theo yêu cầu đề: filter_var(..., FILTER_VALIDATE_EMAIL).
 require __DIR__.'/helpers.php';
 $name = inputText($_POST, 'full_name');
 $email = inputText($_POST, 'email');
